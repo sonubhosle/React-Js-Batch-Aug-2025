@@ -2,12 +2,7 @@ import React, { useState } from 'react';
 import { X, ChevronDown, ChevronUp } from 'lucide-react';
 import { categories } from '../../Data/products';
 
-export const FilterSidebar = ({
-  isOpen,
-  onClose,
-  filters,
-  onFilterChange,
-}) => {
+export const FilterSidebar = ({ isOpen, onClose,filters,onFilterChange,}) => {
   const [expandedSections, setExpandedSections] = useState({
     category: true,
     price: true,
@@ -30,7 +25,6 @@ export const FilterSidebar = ({
   };
 
   const handlePriceChange = (range) => {
-    // Toggle if same price clicked
     onFilterChange({
       ...filters,
       priceRange: filters.priceRange === range ? '' : range,
@@ -51,10 +45,9 @@ export const FilterSidebar = ({
 
   return (
     <>
-      {/* Overlay for mobile */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          className="fixed inset-0 bg-[rgba(0,0,0,0.090)] bg-opacity-50 z-50 lg:hidden"
           onClick={onClose}
         />
       )}
@@ -62,7 +55,7 @@ export const FilterSidebar = ({
       {/* Sidebar */}
       <div
         className={`
-          fixed lg:static inset-y-0 left-0 z-10 w-80 bg-white lg:bg-transparent
+          fixed lg:static inset-y-0 left-0 z-50 w-80 bg-white 
           transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0
           transition-transform duration-300 ease-in-out lg:w-64 xl:w-72
           border-r border-gray-200 lg:border-none
@@ -104,26 +97,25 @@ export const FilterSidebar = ({
               )}
             </button>
 
-            {expandedSections.category && (
-              <div className="space-y-2 animate-fade-in">
+            <div
+              className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                expandedSections.category ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="space-y-2">
                 {categories.map((category) => (
-                  <label
-                    key={category}
-                    className="flex items-center cursor-pointer"
-                  >
+                  <label key={category} className="flex items-center cursor-pointer">
                     <input
                       type="checkbox"
                       checked={filters.categories.includes(category)}
                       onChange={() => handleCategoryChange(category)}
                       className="w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
                     />
-                    <span className="ml-3 text-sm text-gray-700">
-                      {category}
-                    </span>
+                    <span className="ml-3 text-sm text-gray-700">{category}</span>
                   </label>
                 ))}
               </div>
-            )}
+            </div>
           </div>
 
           {/* Price Filter */}
@@ -140,18 +132,19 @@ export const FilterSidebar = ({
               )}
             </button>
 
-            {expandedSections.price && (
-              <div className="space-y-2 animate-fade-in">
+            <div
+              className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                expandedSections.price ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="space-y-2">
                 {[
                   { label: 'Under $50', value: '0-50' },
                   { label: '$50 - $100', value: '50-100' },
                   { label: '$100 - $200', value: '100-200' },
                   { label: 'Over $200', value: '200+' },
                 ].map((price) => (
-                  <label
-                    key={price.value}
-                    className="flex items-center cursor-pointer"
-                  >
+                  <label key={price.value} className="flex items-center cursor-pointer">
                     <input
                       type="radio"
                       name="price"
@@ -160,13 +153,11 @@ export const FilterSidebar = ({
                       onChange={() => handlePriceChange(price.value)}
                       className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
                     />
-                    <span className="ml-3 text-sm text-gray-700">
-                      {price.label}
-                    </span>
+                    <span className="ml-3 text-sm text-gray-700">{price.label}</span>
                   </label>
                 ))}
               </div>
-            )}
+            </div>
           </div>
 
           {/* Discount Filter */}
@@ -183,31 +174,30 @@ export const FilterSidebar = ({
               )}
             </button>
 
-            {expandedSections.discount && (
-              <div className="space-y-2 animate-fade-in">
+            <div
+              className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                expandedSections.discount ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="space-y-2">
                 {[
                   { label: '10% or more', value: '10+' },
                   { label: '20% or more', value: '20+' },
                   { label: '30% or more', value: '30+' },
                   { label: '50% or more', value: '50+' },
                 ].map((discount) => (
-                  <label
-                    key={discount.value}
-                    className="flex items-center cursor-pointer"
-                  >
+                  <label key={discount.value} className="flex items-center cursor-pointer">
                     <input
                       type="checkbox"
                       checked={filters.discounts.includes(discount.value)}
                       onChange={() => handleDiscountChange(discount.value)}
                       className="w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
                     />
-                    <span className="ml-3 text-sm text-gray-700">
-                      {discount.label}
-                    </span>
+                    <span className="ml-3 text-sm text-gray-700">{discount.label}</span>
                   </label>
                 ))}
               </div>
-            )}
+            </div>
           </div>
 
           {/* Clear filters button for mobile */}
@@ -222,4 +212,5 @@ export const FilterSidebar = ({
     </>
   );
 };
+
 export default FilterSidebar;

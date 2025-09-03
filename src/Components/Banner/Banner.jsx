@@ -88,20 +88,7 @@ const Banner =() => {
     return () => clearInterval(interval)
   }, [isAutoPlaying])
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length)
-    setIsAutoPlaying(false)
-  }
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-    setIsAutoPlaying(false)
-  }
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index)
-    setIsAutoPlaying(false)
-  }
 
   return (
     <div className="relative w-full h-[500px] overflow-hidden">
@@ -144,7 +131,7 @@ const Banner =() => {
                     <button
                       variant="outline"
                       size="lg"
-                      className="border-2 cursor-pointer border-white/40 text-white hover:bg-white/15 px-10 py-2 text-xl bg-transparent rounded-[4px] backdrop-blur-sm hover:border-white/60 transition-all duration-300"
+                      className="border-1 cursor-pointer border-white/40 text-white hover:bg-white/15 px-10 py-2 text-xl bg-transparent rounded-[4px] backdrop-blur-sm hover:border-white/60 transition-all duration-300"
                     >
                       {slide.secondaryButtonText}
                     </button>
@@ -170,7 +157,7 @@ const Banner =() => {
           />
         ))}
       </div> */}
-      <div className="absolute top-8 right-8 bg-white/90 px-6 py-3 rounded-full shadow-lg backdrop-blur-sm">
+      <div className="absolute top-8 right-8 bg-white px-6 py-3 rounded-full shadow-lg backdrop-blur-sm">
         <span className="text-sm font-bold text-gray-900 capitalize flex items-center gap-2">
           {slides[currentSlide].icon}
           {slides[currentSlide].category}

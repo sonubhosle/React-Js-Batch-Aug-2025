@@ -1,17 +1,18 @@
-import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react"
+import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, Sparkles } from "lucide-react"
 import { Link } from "react-router-dom"
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-900 text-white">
+    <footer className="bg-slate-900 text-white ">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-             Flavoro
-            </h3>
+           <Link >
+          <p className="text-3xl font-bold text-white  uppercase">Buyzaar</p>
+          <div className="flex text-gray-400  items-center gap-1 mb-3">Explore Plus <Sparkles className="w-4 h-4 text-amber-400"/></div>
+        </Link>
             <p className="text-slate-300 leading-relaxed">
               Your ultimate destination for fashion, beauty, and lifestyle. Discover the latest trends for men, women,
               kids, and more.
@@ -110,7 +111,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={16} className="text-slate-400" />
-                <span className="text-slate-300 text-sm">hello@stylehub.com</span>
+                <span className="text-slate-300 text-sm">hello@Buyzaar.com</span>
               </div>
             </div>
           </div>
@@ -143,7 +144,7 @@ const Footer = () => {
       <div className="border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            <p className="text-slate-400 text-sm">© 2024 StyleHub. All rights reserved.</p>
+            <p className="text-slate-400 text-sm">© 2024 Buyzaar. All rights reserved.</p>
             <div className="flex space-x-6">
               <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">
                 Privacy Policy

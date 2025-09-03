@@ -3,10 +3,10 @@ import { Star, ShoppingCart } from 'lucide-react';
 
  const ProductCard = ({ product }) => {
   return (
-    <div className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group overflow-hidden border border-gray-100">
-      <div className="relative overflow-hidden ">
-        <img
-          src={product.image}
+    <div className="bg-white rounded-[4px]  transition-all duration-300 transform hover:-translate-y-2 group overflow-hidden border border-gray-300">
+      {/* Image Container */}
+      <div className="relative overflow-hidden bg-gray-50">
+        <img src={product.image}
           alt={product.title}
           className="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-500"
           loading="lazy"
@@ -26,13 +26,6 @@ import { Star, ShoppingCart } from 'lucide-react';
           )}
         </div>
 
-        {/* Add to Cart Button */}
-        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-          <button className="bg-white text-gray-900 px-4 py-2 rounded-full font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl">
-            <ShoppingCart className="w-4 h-4" />
-            Add to Cart
-          </button>
-        </div>
       </div>
 
       {/* Content */}

@@ -16,7 +16,7 @@ import { Filter, SortAsc, SortDesc, Clock, TrendingUp } from 'lucide-react';
   ];
 
   return (
-    <div className="bg-white border-b border-gray-200 sticky top-0 z-30">
+    <div className="bg-white border-b border-gray-200 ">
       <div className="px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           {/* Left side - Title and count */}
